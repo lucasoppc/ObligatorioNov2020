@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ARTICULO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="PRECIO" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ARTICULOSPUBLICADOS">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="NUMERO" />
+          </Key>
+          <Property Name="CODIGO" Type="int" Nullable="false" />
+          <Property Name="NUMERO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AVISO">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+          </Key>
+          <Property Name="NUMERO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CEDULA" Type="int" Nullable="false" />
+          <Property Name="TELEFONO" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="NOM_LOGUEO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="COD" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="datetime" Nullable="false" />
+          <Property Name="FECHA_FIN" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="COD" />
+          </Key>
+          <Property Name="COD" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="CEDULA" />
+          </Key>
+          <Property Name="CEDULA" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="NOM_LOGUEO" />
+          </Key>
+          <Property Name="NOM_LOGUEO" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CONTRASENA" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ARTICULOS__CODIG__37A5467C">
+          <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="1" />
+          <End Role="ARTICULOSPUBLICADOS" Type="Self.ARTICULOSPUBLICADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ARTICULO">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="ARTICULOSPUBLICADOS">
+              <PropertyRef Name="CODIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ARTICULOS__NUMER__38996AB5">
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="1" />
+          <End Role="ARTICULOSPUBLICADOS" Type="Self.ARTICULOSPUBLICADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AVISO">
+              <PropertyRef Name="NUMERO" />
+            </Principal>
+            <Dependent Role="ARTICULOSPUBLICADOS">
+              <PropertyRef Name="NUMERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AVISO__CEDULA__2D27B809">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="CEDULA" />
+            </Principal>
+            <Dependent Role="AVISO">
+              <PropertyRef Name="CEDULA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AVISO__COD__300424B4">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="COD" />
+            </Principal>
+            <Dependent Role="AVISO">
+              <PropertyRef Name="COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AVISO__NOM_LOGUE__2F10007B">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="NOM_LOGUEO" />
+            </Principal>
+            <Dependent Role="AVISO">
+              <PropertyRef Name="NOM_LOGUEO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ALTAARTICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="PRECIO" Type="float" Mode="In" />
+        </Function>
+        <Function Name="ALTAAVISO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NOM_LOGUEO" Type="varchar" Mode="In" />
+          <Parameter Name="CEDULA" Type="int" Mode="In" />
+          <Parameter Name="TELEFONO" Type="varchar" Mode="In" />
+          <Parameter Name="CODIGOCATEGORIA" Type="varchar" Mode="In" />
+          <Parameter Name="FECHA_INICIO" Type="date" Mode="In" />
+          <Parameter Name="FECHA_FIN" Type="date" Mode="In" />
+        </Function>
+        <Function Name="ALTACATEGORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="COD" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ALTACLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CEDULA" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="DIRECCION" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ALTAEMPLEADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="CONTRASENA" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ELIMINARARTICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODIGO" Type="int" Mode="In" />
+          <Parameter Name="RETORNO" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ELIMINARCATEGORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODIGO" Type="varchar" Mode="In" />
+          <Parameter Name="RETORNO" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="ELIMINARCLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CEDULA" Type="int" Mode="In" />
+          <Parameter Name="RETORNO" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="MODIFICARARTICULO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CODIGO" Type="int" Mode="In" />
+          <Parameter Name="DESCRIPCION" Type="varchar" Mode="In" />
+          <Parameter Name="PRECIO" Type="float" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARCATEGORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="COD" Type="varchar" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="MODIFICARCLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CEDULA" Type="int" Mode="In" />
+          <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+          <Parameter Name="DIRECCION" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="DbModelStoreContainer">
+          <EntitySet Name="ARTICULO" EntityType="Self.ARTICULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ARTICULOSPUBLICADOS" EntityType="Self.ARTICULOSPUBLICADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AVISO" EntityType="Self.AVISO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ARTICULOS__CODIG__37A5467C" Association="Self.FK__ARTICULOS__CODIG__37A5467C">
+            <End Role="ARTICULO" EntitySet="ARTICULO" />
+            <End Role="ARTICULOSPUBLICADOS" EntitySet="ARTICULOSPUBLICADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ARTICULOS__NUMER__38996AB5" Association="Self.FK__ARTICULOS__NUMER__38996AB5">
+            <End Role="AVISO" EntitySet="AVISO" />
+            <End Role="ARTICULOSPUBLICADOS" EntitySet="ARTICULOSPUBLICADOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AVISO__CEDULA__2D27B809" Association="Self.FK__AVISO__CEDULA__2D27B809">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AVISO__COD__300424B4" Association="Self.FK__AVISO__COD__300424B4">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AVISO__NOM_LOGUE__2F10007B" Association="Self.FK__AVISO__NOM_LOGUE__2F10007B">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ARTICULO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO" Type="Double" Nullable="false" />
+          <NavigationProperty Name="AVISO" Relationship="Self.ARTICULOSPUBLICADOS" FromRole="ARTICULO" ToRole="AVISO" />
+        </EntityType>
+        <EntityType Name="AVISO">
+          <Key>
+            <PropertyRef Name="NUMERO" />
+          </Key>
+          <Property Name="NUMERO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CEDULA" Type="Int32" Nullable="false" />
+          <Property Name="TELEFONO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_LOGUEO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__AVISO__CEDULA__2D27B809" FromRole="AVISO" ToRole="CLIENTE" />
+          <NavigationProperty Name="CATEGORIA" Relationship="Self.FK__AVISO__COD__300424B4" FromRole="AVISO" ToRole="CATEGORIA" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__AVISO__NOM_LOGUE__2F10007B" FromRole="AVISO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="ARTICULO" Relationship="Self.ARTICULOSPUBLICADOS" FromRole="AVISO" ToRole="ARTICULO" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="COD" />
+          </Key>
+          <Property Name="COD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AVISO" Relationship="Self.FK__AVISO__COD__300424B4" FromRole="CATEGORIA" ToRole="AVISO" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="CEDULA" />
+          </Key>
+          <Property Name="CEDULA" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AVISO" Relationship="Self.FK__AVISO__CEDULA__2D27B809" FromRole="CLIENTE" ToRole="AVISO" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="NOM_LOGUEO" />
+          </Key>
+          <Property Name="NOM_LOGUEO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTRASENA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AVISO" Relationship="Self.FK__AVISO__NOM_LOGUE__2F10007B" FromRole="EMPLEADO" ToRole="AVISO" />
+        </EntityType>
+        <Association Name="FK__AVISO__CEDULA__2D27B809">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="CEDULA" />
+            </Principal>
+            <Dependent Role="AVISO">
+              <PropertyRef Name="CEDULA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AVISO__COD__300424B4">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="COD" />
+            </Principal>
+            <Dependent Role="AVISO">
+              <PropertyRef Name="COD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AVISO__NOM_LOGUE__2F10007B">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="NOM_LOGUEO" />
+            </Principal>
+            <Dependent Role="AVISO">
+              <PropertyRef Name="NOM_LOGUEO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ARTICULOSPUBLICADOS">
+          <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+          <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ARTICULO" EntityType="Self.ARTICULO" />
+          <EntitySet Name="AVISO" EntityType="Self.AVISO" />
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+          <AssociationSet Name="FK__AVISO__CEDULA__2D27B809" Association="Self.FK__AVISO__CEDULA__2D27B809">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AVISO__COD__300424B4" Association="Self.FK__AVISO__COD__300424B4">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AVISO__NOM_LOGUE__2F10007B" Association="Self.FK__AVISO__NOM_LOGUE__2F10007B">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+          <AssociationSet Name="ARTICULOSPUBLICADOS" Association="Self.ARTICULOSPUBLICADOS">
+            <End Role="ARTICULO" EntitySet="ARTICULO" />
+            <End Role="AVISO" EntitySet="AVISO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ARTICULO">
+            <EntityTypeMapping TypeName="DbModel.ARTICULO">
+              <MappingFragment StoreEntitySet="ARTICULO">
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DbModel.ARTICULO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DbModel.Store.ALTAARTICULO">
+                  <ScalarProperty Name="PRECIO" ParameterName="PRECIO" />
+                  <ScalarProperty Name="DESCRIPCION" ParameterName="DESCRIPCION" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DbModel.Store.MODIFICARARTICULO">
+                  <ScalarProperty Name="PRECIO" ParameterName="PRECIO" Version="Current" />
+                  <ScalarProperty Name="DESCRIPCION" ParameterName="DESCRIPCION" Version="Current" />
+                  <ScalarProperty Name="CODIGO" ParameterName="CODIGO" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AVISO">
+            <EntityTypeMapping TypeName="DbModel.AVISO">
+              <MappingFragment StoreEntitySet="AVISO">
+                <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="NOM_LOGUEO" ColumnName="NOM_LOGUEO" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+                <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DbModel.AVISO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DbModel.Store.ALTAAVISO">
+                  <ScalarProperty Name="COD" ParameterName="CODIGOCATEGORIA" />
+                  <ScalarProperty Name="FECHA_FIN" ParameterName="FECHA_FIN" />
+                  <ScalarProperty Name="FECHA_INICIO" ParameterName="FECHA_INICIO" />
+                  <ScalarProperty Name="TELEFONO" ParameterName="TELEFONO" />
+                  <ScalarProperty Name="CEDULA" ParameterName="CEDULA" />
+                  <ScalarProperty Name="NOM_LOGUEO" ParameterName="NOM_LOGUEO" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIA">
+            <EntityTypeMapping TypeName="DbModel.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIA">
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DbModel.CATEGORIA">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DbModel.Store.ALTACATEGORIA">
+                  <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" />
+                  <ScalarProperty Name="COD" ParameterName="COD" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DbModel.Store.MODIFICARCATEGORIA">
+                  <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" Version="Current" />
+                  <ScalarProperty Name="COD" ParameterName="COD" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="DbModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DbModel.CLIENTE">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DbModel.Store.ALTACLIENTE">
+                  <ScalarProperty Name="DIRECCION" ParameterName="DIRECCION" />
+                  <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" />
+                  <ScalarProperty Name="CEDULA" ParameterName="CEDULA" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="DbModel.Store.MODIFICARCLIENTE">
+                  <ScalarProperty Name="DIRECCION" ParameterName="DIRECCION" Version="Current" />
+                  <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" Version="Current" />
+                  <ScalarProperty Name="CEDULA" ParameterName="CEDULA" Version="Current" />
+                </UpdateFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADO">
+            <EntityTypeMapping TypeName="DbModel.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="NOM_LOGUEO" ColumnName="NOM_LOGUEO" />
+                <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="DbModel.EMPLEADO">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="DbModel.Store.ALTAEMPLEADO">
+                  <ScalarProperty Name="NOM_LOGUEO" ParameterName="NOMBRE" />
+                  <ScalarProperty Name="CONTRASENA" ParameterName="CONTRASENA" />
+                </InsertFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ARTICULOSPUBLICADOS" TypeName="DbModel.ARTICULOSPUBLICADOS" StoreEntitySet="ARTICULOSPUBLICADOS">
+            <EndProperty Name="ARTICULO">
+              <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+            </EndProperty>
+            <EndProperty Name="AVISO">
+              <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
