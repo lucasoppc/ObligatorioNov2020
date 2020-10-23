@@ -14,16 +14,7 @@ namespace Model
     
     public partial class EMPLEADO
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMPLEADO()
-        {
-            this.AVISO = new HashSet<AVISO>();
-        }
-    
         public string NOM_LOGUEO { get; set; }
         public string CONTRASENA { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AVISO> AVISO { get; set; }
     }
 }

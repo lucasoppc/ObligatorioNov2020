@@ -14,17 +14,8 @@ namespace Model
     
     public partial class CLIENTE
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CLIENTE()
-        {
-            this.AVISO = new HashSet<AVISO>();
-        }
-    
         public int CEDULA { get; set; }
         public string NOMBRE { get; set; }
         public string DIRECCION { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AVISO> AVISO { get; set; }
     }
 }

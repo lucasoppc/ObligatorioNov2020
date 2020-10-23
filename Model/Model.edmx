@@ -206,7 +206,6 @@
           <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PRECIO" Type="Double" Nullable="false" />
-          <NavigationProperty Name="AVISO" Relationship="Self.ARTICULOSPUBLICADOS" FromRole="ARTICULO" ToRole="AVISO" />
         </EntityType>
         <EntityType Name="AVISO">
           <Key>
@@ -230,7 +229,6 @@
           </Key>
           <Property Name="COD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="AVISO" Relationship="Self.FK__AVISO__COD__300424B4" FromRole="CATEGORIA" ToRole="AVISO" />
         </EntityType>
         <EntityType Name="CLIENTE">
           <Key>
@@ -239,7 +237,6 @@
           <Property Name="CEDULA" Type="Int32" Nullable="false" />
           <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="AVISO" Relationship="Self.FK__AVISO__CEDULA__2D27B809" FromRole="CLIENTE" ToRole="AVISO" />
         </EntityType>
         <EntityType Name="EMPLEADO">
           <Key>
@@ -247,7 +244,6 @@
           </Key>
           <Property Name="NOM_LOGUEO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CONTRASENA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="AVISO" Relationship="Self.FK__AVISO__NOM_LOGUE__2F10007B" FromRole="EMPLEADO" ToRole="AVISO" />
         </EntityType>
         <Association Name="FK__AVISO__CEDULA__2D27B809">
           <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />

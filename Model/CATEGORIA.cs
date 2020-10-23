@@ -14,16 +14,7 @@ namespace Model
     
     public partial class CATEGORIA
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CATEGORIA()
-        {
-            this.AVISO = new HashSet<AVISO>();
-        }
-    
         public string COD { get; set; }
         public string NOMBRE { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AVISO> AVISO { get; set; }
     }
 }
