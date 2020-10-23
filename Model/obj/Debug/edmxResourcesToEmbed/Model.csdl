@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ARTICULO">
+    <Key>
+      <PropertyRef Name="CODIGO" />
+    </Key>
+    <Property Name="CODIGO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PRECIO" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AVISO">
+    <Key>
+      <PropertyRef Name="NUMERO" />
+    </Key>
+    <Property Name="NUMERO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CEDULA" Type="Int32" Nullable="false" />
+    <Property Name="TELEFONO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_LOGUEO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="CLIENTE" Relationship="Self.FK__AVISO__CEDULA__2D27B809" FromRole="AVISO" ToRole="CLIENTE" />
+    <NavigationProperty Name="CATEGORIA" Relationship="Self.FK__AVISO__COD__300424B4" FromRole="AVISO" ToRole="CATEGORIA" />
+    <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__AVISO__NOM_LOGUE__2F10007B" FromRole="AVISO" ToRole="EMPLEADO" />
+    <NavigationProperty Name="ARTICULO" Relationship="Self.ARTICULOSPUBLICADOS" FromRole="AVISO" ToRole="ARTICULO" />
+  </EntityType>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="COD" />
+    </Key>
+    <Property Name="COD" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="CEDULA" />
+    </Key>
+    <Property Name="CEDULA" Type="Int32" Nullable="false" />
+    <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="NOM_LOGUEO" />
+    </Key>
+    <Property Name="NOM_LOGUEO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CONTRASENA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AVISO__CEDULA__2D27B809">
+    <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+    <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="CEDULA" />
+      </Principal>
+      <Dependent Role="AVISO">
+        <PropertyRef Name="CEDULA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AVISO__COD__300424B4">
+    <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+    <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CATEGORIA">
+        <PropertyRef Name="COD" />
+      </Principal>
+      <Dependent Role="AVISO">
+        <PropertyRef Name="COD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AVISO__NOM_LOGUE__2F10007B">
+    <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+    <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="NOM_LOGUEO" />
+      </Principal>
+      <Dependent Role="AVISO">
+        <PropertyRef Name="NOM_LOGUEO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ARTICULOSPUBLICADOS">
+    <End Role="ARTICULO" Type="Self.ARTICULO" Multiplicity="*" />
+    <End Role="AVISO" Type="Self.AVISO" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ARTICULO" EntityType="Self.ARTICULO" />
+    <EntitySet Name="AVISO" EntityType="Self.AVISO" />
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+    <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+    <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+    <AssociationSet Name="FK__AVISO__CEDULA__2D27B809" Association="Self.FK__AVISO__CEDULA__2D27B809">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="AVISO" EntitySet="AVISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AVISO__COD__300424B4" Association="Self.FK__AVISO__COD__300424B4">
+      <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+      <End Role="AVISO" EntitySet="AVISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AVISO__NOM_LOGUE__2F10007B" Association="Self.FK__AVISO__NOM_LOGUE__2F10007B">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="AVISO" EntitySet="AVISO" />
+    </AssociationSet>
+    <AssociationSet Name="ARTICULOSPUBLICADOS" Association="Self.ARTICULOSPUBLICADOS">
+      <End Role="ARTICULO" EntitySet="ARTICULO" />
+      <End Role="AVISO" EntitySet="AVISO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DbModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="ARTICULO">
+      <EntityTypeMapping TypeName="DbModel.ARTICULO">
+        <MappingFragment StoreEntitySet="ARTICULO">
+          <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="DbModel.ARTICULO">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="DbModel.Store.ALTAARTICULO">
+            <ScalarProperty Name="PRECIO" ParameterName="PRECIO" />
+            <ScalarProperty Name="DESCRIPCION" ParameterName="DESCRIPCION" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="DbModel.Store.MODIFICARARTICULO">
+            <ScalarProperty Name="PRECIO" ParameterName="PRECIO" Version="Current" />
+            <ScalarProperty Name="DESCRIPCION" ParameterName="DESCRIPCION" Version="Current" />
+            <ScalarProperty Name="CODIGO" ParameterName="CODIGO" Version="Current" />
+          </UpdateFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AVISO">
+      <EntityTypeMapping TypeName="DbModel.AVISO">
+        <MappingFragment StoreEntitySet="AVISO">
+          <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="NOM_LOGUEO" ColumnName="NOM_LOGUEO" />
+          <ScalarProperty Name="COD" ColumnName="COD" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="DbModel.AVISO">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="DbModel.Store.ALTAAVISO">
+            <ScalarProperty Name="COD" ParameterName="CODIGOCATEGORIA" />
+            <ScalarProperty Name="FECHA_FIN" ParameterName="FECHA_FIN" />
+            <ScalarProperty Name="FECHA_INICIO" ParameterName="FECHA_INICIO" />
+            <ScalarProperty Name="TELEFONO" ParameterName="TELEFONO" />
+            <ScalarProperty Name="CEDULA" ParameterName="CEDULA" />
+            <ScalarProperty Name="NOM_LOGUEO" ParameterName="NOM_LOGUEO" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CATEGORIA">
+      <EntityTypeMapping TypeName="DbModel.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIA">
+          <ScalarProperty Name="COD" ColumnName="COD" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="DbModel.CATEGORIA">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="DbModel.Store.ALTACATEGORIA">
+            <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" />
+            <ScalarProperty Name="COD" ParameterName="COD" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="DbModel.Store.MODIFICARCATEGORIA">
+            <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" Version="Current" />
+            <ScalarProperty Name="COD" ParameterName="COD" Version="Current" />
+          </UpdateFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="DbModel.CLIENTE">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="DbModel.CLIENTE">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="DbModel.Store.ALTACLIENTE">
+            <ScalarProperty Name="DIRECCION" ParameterName="DIRECCION" />
+            <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" />
+            <ScalarProperty Name="CEDULA" ParameterName="CEDULA" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="DbModel.Store.MODIFICARCLIENTE">
+            <ScalarProperty Name="DIRECCION" ParameterName="DIRECCION" Version="Current" />
+            <ScalarProperty Name="NOMBRE" ParameterName="NOMBRE" Version="Current" />
+            <ScalarProperty Name="CEDULA" ParameterName="CEDULA" Version="Current" />
+          </UpdateFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADO">
+      <EntityTypeMapping TypeName="DbModel.EMPLEADO">
+        <MappingFragment StoreEntitySet="EMPLEADO">
+          <ScalarProperty Name="NOM_LOGUEO" ColumnName="NOM_LOGUEO" />
+          <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="DbModel.EMPLEADO">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="DbModel.Store.ALTAEMPLEADO">
+            <ScalarProperty Name="NOM_LOGUEO" ParameterName="NOMBRE" />
+            <ScalarProperty Name="CONTRASENA" ParameterName="CONTRASENA" />
+          </InsertFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ARTICULOSPUBLICADOS" TypeName="DbModel.ARTICULOSPUBLICADOS" StoreEntitySet="ARTICULOSPUBLICADOS">
+      <EndProperty Name="ARTICULO">
+        <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+      </EndProperty>
+      <EndProperty Name="AVISO">
+        <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
