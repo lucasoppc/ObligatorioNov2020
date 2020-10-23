@@ -10,6 +10,9 @@ using System.Reflection;
 
 namespace Model
 {
+    /// <summary>
+    /// Permite validar si alguna Entidad es valida Importante: usar try catch porque lanza exepciones
+    /// </summary>
     public static class EntityValidation
     {
         public static void Validar(EMPLEADO empleado)

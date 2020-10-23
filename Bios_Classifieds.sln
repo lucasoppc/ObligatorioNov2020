@@ -28,6 +28,27 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Bios_Classifieds_WService",
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ClassifiedsApp", "ClassifiedsApp\", "{3A5BBC90-3C27-4510-86EA-DDE7F8C443AA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_65425"
+		Debug.AspNetCompiler.PhysicalPath = "ClassifiedsApp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65425\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_65425"
+		Release.AspNetCompiler.PhysicalPath = "ClassifiedsApp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_65425\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "65425"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +63,10 @@ Global
 		{FABD96B1-E9D9-4DAD-9E34-968A326E1D89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FABD96B1-E9D9-4DAD-9E34-968A326E1D89}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{FABD96B1-E9D9-4DAD-9E34-968A326E1D89}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3A5BBC90-3C27-4510-86EA-DDE7F8C443AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5BBC90-3C27-4510-86EA-DDE7F8C443AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A5BBC90-3C27-4510-86EA-DDE7F8C443AA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A5BBC90-3C27-4510-86EA-DDE7F8C443AA}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

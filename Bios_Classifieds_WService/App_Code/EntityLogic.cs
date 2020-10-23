@@ -16,6 +16,7 @@ public class EntityLogic
     //Constructor
     public EntityLogic(){}
 
+    //Entity
     #region Entity Framework
     //Declaracion del contexto del Entity
     private static Model.Entities _context = null;
@@ -46,7 +47,7 @@ public class EntityLogic
     }
     #endregion
 
-    #region Eliminaciones
+    #region Eliminaciones (100%)
     public void EliminarArticulo(ARTICULO articulo)
     {
         try
