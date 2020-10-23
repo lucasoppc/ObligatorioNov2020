@@ -32,6 +32,6 @@ namespace Model
         public virtual CATEGORIA CATEGORIA { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ARTICULO> ARTICULO { get; set; }
+        public virtual HashSet<ARTICULO> ARTICULO { get; set; }
     }
 }
