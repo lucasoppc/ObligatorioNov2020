@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Bios_Classifieds_WService", "Bios_Classifieds_WService\", "{FABD96B1-E9D9-4DAD-9E34-968A326E1D89}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6"
+		ProjectReferences = "{b83243ca-8335-4689-a57a-3e933ae939ea}|Model.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_63419"
 		Debug.AspNetCompiler.PhysicalPath = "Bios_Classifieds_WService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63419\"
@@ -23,6 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Bios_Classifieds_WService",
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "63419"
+		SlnRelativePath = "Bios_Classifieds_WService\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
