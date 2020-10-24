@@ -81,7 +81,7 @@ div.content {
        
 <div class="sidebar">
   <a class="active" href="#">Empleados</a>
-  <a href="AbmAvisos">Alta de avisos</a>
+  <a href="AltaAvisos.aspx">Alta de avisos</a>
   <a href="AbmClientes.aspx">Gestion de clientes</a>
   <a href="AbmCategorias.aspx">Gestion de categorias</a>
   <a href="AbmArticulos.aspx">Gestion de articulos</a>

@@ -28,15 +28,20 @@
                         <div class="form-horizontal">
                             <!-- User Name Input -->
                             <div class="form-group row justify-content-center px-3">
-                                <div class="col-9 px-0"> <i class="fas fa-user-circle"><label for="txtNom_Empleado" class="text-white ml-2">Nombre de empleado:</label></i><asp:TextBox ID="txtNom_Empleado" CssClass="form-control border-info placeicon" runat="server"></asp:TextBox> </div>
+                                <div class="col-9 px-0"> <i class="fa fa-user bigicon"><label for="txtNom_Empleado" class="text-white ml-2">Nombre de empleado:</label></i><asp:TextBox ID="txtNom_Empleado" CssClass="form-control border-info placeicon" runat="server"></asp:TextBox> </div>
                             </div> <!-- Password Input -->
                             <div class="form-group row justify-content-center px-3">
-                                <div class="col-9 px-0"> <i class="fas fa-key">  <label for="txtNom_Empleado" class="text-white ml-1">Contraseña:</label></i><asp:TextBox ID="txtContrasena" CssClass="form-control border-info placeicon" runat="server" TextMode="Password"></asp:TextBox>  </div>
+                                <div class="col-9 px-0"> <i class="fa fa-key bigicon">  <label for="txtNom_Empleado" class="text-white ml-1">Contraseña:</label></i><asp:TextBox ID="txtContrasena" CssClass="form-control border-info placeicon" runat="server" TextMode="Password"></asp:TextBox>  </div>
                             </div> 
                         <!-- Log in Button -->
                             <div class="form-group row justify-content-center">
                                 <div class="col-3 px-3"> <asp:Button ID="btnLogueo" runat="server" CssClass="btn btn-block btn-info" Text="Ingresar" /> </div>
                             </div>
+                            <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <asp:Label ID="lblError" CssClass="text-danger" runat="server" Text=""></asp:Label>
+                            </div>
+                        </div>
                         </div>
                     </div> 
                     </div>

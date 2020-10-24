@@ -27,14 +27,14 @@
                             
                             <div class="col-md-8 m-auto">
                                 <span class="col-md-1  text-center"><i class="fa fa-user bigicon"></i></span>
-                                <asp:TextBox ID="txtNom_Usuario" CssClass="form-control" runat="server" ToolTip="Nombre de usuario"></asp:TextBox>
+                                <asp:TextBox ID="txtNom_Usuario" placeholder="Nombre de usuario" CssClass="form-control" runat="server" ToolTip="Nombre de usuario"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
                             
                             <div class="col-md-8 m-auto">
                                 <span class="col-md-1  text-center"><i class="fa fa-key"></i></span>
-                                <asp:TextBox ID="txtContrasena" CssClass="form-control" runat="server" TextMode="Password" ToolTip="Contraseña"></asp:TextBox>
+                                <asp:TextBox ID="txtContrasena" placeholder="Contraseña" CssClass="form-control" runat="server" TextMode="Password" ToolTip="Contraseña"></asp:TextBox>
                             </div>
                         </div>
 
@@ -43,6 +43,12 @@
                         <div class="form-group">
                             <div class="col-md-12 text-center">
                                 <asp:Button ID="btnAltaEmpleado" CssClass="btn btn-primary btn-lg" runat="server" Text="Dar de alta" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-12 text-center">
+                                <asp:Label ID="lblError" CssClass="text-danger" runat="server" Text=""></asp:Label>
                             </div>
                         </div>
                     </fieldset>
