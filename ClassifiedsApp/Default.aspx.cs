@@ -9,6 +9,13 @@ public partial class _Default : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        List<string> lista = new List<string>();
+        lista.Add("Hola");
+        lista.Add("Hola");
+        lista.Add("Hola");
+        lista.Add("Hola");
+        lista.Add("Hola");
+        gvAvisos.DataSource = lista;
+        gvAvisos.DataBind();
     }
 }

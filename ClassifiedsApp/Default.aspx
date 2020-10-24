@@ -15,10 +15,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="#">Bios Classifieds</a>
-
-  <div class="navbar-collapse collapse show" id="navbarsExampleDefault" style="">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
 
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -36,15 +39,24 @@
             <asp:Button ID="btnLimpiarFiltros" class="btn btn-primary" runat="server" Text="Limpiar Filtros" />
         </li>
     </ul>
-  </div>
-        <div class="navbar-nav mr-2">
+      <div class="navbar-nav mr-2">
             <a class="btn btn-info mt-1" href="#"><i class="fas fa-sign-in-alt"></i>  Ingreso Empleados</a>
         </div>
+  </div>
+        
 </nav>
+            </div>
+
+        <div class="container mt-5 pt-5">
+        <div class="row row-content align-items-center m-auto">
+
+            <asp:GridView ID="gvAvisos" runat="server">
+             </asp:GridView>
+        </div>
+        </div>
+        
     </form>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/jquery-3.0.0.min.js"></script>
-    <script src="Scripts/jquery.slim.min.js"></script>
-    <script src="Scripts/umd/popper.min.js"></script>
+    <script src="Content/scripts/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="Content/scripts/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>
