@@ -17,5 +17,9 @@ public partial class _Default : System.Web.UI.Page
         lista.Add("Hola");
         gvAvisos.DataSource = lista;
         gvAvisos.DataBind();
+
+        ddlCategoria.Items.Add("Hola");
+        ddlCategoria.Items.Add("Hola");
+        ddlCategoria.Items.Add("Hola");
     }
 }

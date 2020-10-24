@@ -40,7 +40,7 @@
         </li>
     </ul>
       <div class="navbar-nav mr-2">
-            <a class="btn btn-info mt-1" href="#"><i class="fas fa-sign-in-alt"></i>  Ingreso Empleados</a>
+            <a class="btn btn-info mt-1" href="Logueo.aspx"><i class="fas fa-sign-in-alt"></i>  Ingreso Empleados</a>
         </div>
   </div>
         
