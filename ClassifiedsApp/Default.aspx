@@ -50,7 +50,7 @@
         <div class="container mt-5 pt-5">
         <div class="row row-content align-items-center m-auto">
 
-            <asp:GridView ID="gvAvisos" runat="server">
+            <asp:GridView ID="gvAvisos" CssClass="table table-responsive" runat="server">
              </asp:GridView>
         </div>
         </div>
