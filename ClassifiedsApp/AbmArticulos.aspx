@@ -54,9 +54,9 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <asp:Button ID="btnAltaArticulo" CssClass="btn btn-primary btn-lg" runat="server" Text="Dar de alta" />
-                                <asp:Button ID="btnModificarArticulo" CssClass="btn btn-warning btn-lg" runat="server" Text="Modificar" />
-                                <asp:Button ID="btnEliminarArticulo" CssClass="btn btn-danger btn-lg" runat="server" Text="Eliminar" />
+                                <asp:Button ID="btnAltaArticulo" CssClass="btn btn-primary btn-sm btn-lg" runat="server" Text="Dar de alta" />
+                                <asp:Button ID="btnModificarArticulo" CssClass="btn btn-warning btn-sm" runat="server" Text="Modificar" />
+                                <asp:Button ID="btnEliminarArticulo" CssClass="btn btn-danger btn-sm" runat="server" Text="Eliminar" />
                             </div>
                         </div>
 

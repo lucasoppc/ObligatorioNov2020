@@ -86,7 +86,8 @@ div.content {
   <a href="AbmCategorias.aspx">Gestion de categorias</a>
   <a href="AbmArticulos.aspx">Gestion de articulos</a>
   <a href="AltaEmpleados.aspx">Alta empleados</a>
-  <asp:Button runat="server" ID="btnSalir" Text="Cerrar Sesion" CssClass="btn btn-danger ml-2" />
+  
+  <asp:Button runat="server" ID="btnSalir" Text="Cerrar Sesion" CssClass="btn btn-danger ml-2" OnClick="btnSalir_Click" />
 </div>
 
 <div class="content">

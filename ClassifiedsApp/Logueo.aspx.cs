@@ -11,4 +11,9 @@ public partial class Logueo : System.Web.UI.Page
     {
         
     }
+
+    protected void btnLogueo_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/AltaAvisos.aspx");
+    }
 }

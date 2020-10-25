@@ -29,18 +29,21 @@
         </li>
       <li class="nav-item pr-2 active">
           <label for="ddlCategoria" class="text-white">Categoria</label>
-          <asp:DropDownList ID="ddlCategoria" runat="server"></asp:DropDownList>
+          <asp:DropDownList ID="ddlCategoria" CssClass="form-control form-control-sm" runat="server"></asp:DropDownList>
       </li>
       <li class="nav-item pr-2 active">
           <label for="ControlFechas" class="text-white">Fecha de publicacion</label>
           <uc1:controlfechas runat="server" id="ControlFechas" />
       </li>
         <li class="nav-item pr-2 active">
-            <asp:Button ID="btnLimpiarFiltros" class="btn btn-primary" runat="server" Text="Limpiar Filtros" />
+            <asp:Button ID="btnFiltrarPorFecha" class="btn btn-primary btn-sm" runat="server" Text="Aplicar" />
+        </li>
+        <li class="nav-item pr-2 active">
+            <asp:Button ID="btnLimpiarFiltros" class="btn btn-primary btn-sm" runat="server" Text="Limpiar Filtros" />
         </li>
     </ul>
-      <div class="navbar-nav mr-2">
-            <a class="btn btn-info mt-1" href="Logueo.aspx"><i class="fas fa-sign-in-alt"></i>  Ingreso Empleados</a>
+      <div class="navbar-item active pr-2">
+            <a class="btn btn-info btn-sm mt-1" href="Logueo.aspx"><i class="fas fa-sign-in-alt"></i>  Ingreso Empleados</a>
         </div>
   </div>
         

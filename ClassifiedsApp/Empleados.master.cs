@@ -11,4 +11,9 @@ public partial class Empleados : System.Web.UI.MasterPage
     {
 
     }
+
+    protected void btnSalir_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Default.aspx");
+    }
 }

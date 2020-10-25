@@ -47,9 +47,9 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <asp:Button ID="btnAltaCategoria" CssClass="btn btn-primary btn-lg" runat="server" Text="Dar de alta" />
-                                 <asp:Button ID="btnModificarCategoria" CssClass="btn btn-warning btn-lg" runat="server" Text="Modificar" />
-                                <asp:Button ID="btnEliminarCategoria" CssClass="btn btn-danger btn-lg" runat="server" Text="Eliminar" />
+                                <asp:Button ID="btnAltaCategoria" CssClass="btn btn-primary btn-sm" runat="server" Text="Dar de alta" />
+                                 <asp:Button ID="btnModificarCategoria" CssClass="btn btn-warning btn-sm" runat="server" Text="Modificar" />
+                                <asp:Button ID="btnEliminarCategoria" CssClass="btn btn-danger btn-sm" runat="server" Text="Eliminar" />
                             </div>
                         </div>
 
