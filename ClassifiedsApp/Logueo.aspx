@@ -35,7 +35,7 @@
                             </div> 
                         <!-- Log in Button -->
                             <div class="form-group row justify-content-center">
-                                <div class="col-3 px-3"> <asp:Button ID="btnLogueo" runat="server" CssClass="btn btn-block btn-info" Text="Ingresar" OnClick="btnLogueo_Click" /> </div>
+                                <div class="col-4 px-3"> <asp:Button ID="btnLogueo" runat="server" CssClass="btn btn-block btn-info" Text="Ingresar" OnClick="btnLogueo_Click" /> </div>
                             </div>
                             <div class="form-group">
                             <div class="col-md-12 text-center">

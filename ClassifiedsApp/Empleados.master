@@ -18,60 +18,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     </asp:ContentPlaceHolder>
     <style>
-      body {
-  margin: 0;
-  font-family: "Lato", sans-serif;
-}
 
-.sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
 
-.sidebar a {
+
+
+ a {
   display: block;
   color: black;
-  padding: 16px;
+  padding: 0px;
   text-decoration: none;
+  
 }
  
-.sidebar a.active {
+a.active {
   background-color: #4CAF50;
   color: white;
 }
 
-.sidebar a:hover:not(.active) {
+a:hover:not(.active) {
   background-color: #555;
   color: white;
+  text-decoration:none;
 }
 
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+li:hover{
+    background-color: #555;
+  color: white;
+  text-decoration:none;
 }
 
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
 
     </style>
 
@@ -79,16 +54,38 @@ div.content {
 <body>
     <form id="form1" runat="server">
        
-<div class="sidebar">
-  <a class="active" href="#">Empleados</a>
-  <a href="AltaAvisos.aspx">Alta de avisos</a>
-  <a href="AbmClientes.aspx">Gestion de clientes</a>
-  <a href="AbmCategorias.aspx">Gestion de categorias</a>
-  <a href="AbmArticulos.aspx">Gestion de articulos</a>
-  <a href="AltaEmpleados.aspx">Alta empleados</a>
-  
-  <asp:Button runat="server" ID="btnSalir" Text="Cerrar Sesion" CssClass="btn btn-danger ml-2" OnClick="btnSalir_Click" />
-</div>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a class="navbar-brand" href="Default.aspx">Bios Classifieds</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+    <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active p-2">
+            <a class="" href="AltaAvisos.aspx">Avisos</a>     
+        </li>
+        <li class="nav-item active p-2">
+            <a class="" href="AbmArticulos.aspx">Articulos</a>
+        </li>
+        <li class="nav-item active p-2">
+            <a class="" href="AbmClientes.aspx">Clientes</a>
+        </li>
+        <li class="nav-item active p-2">
+            <a class="" href="AbmCategorias.aspx">Categorias</a>
+        </li>
+        <li class="nav-item active p-2">
+            <a class="" href="AltaEmpleados.aspx">Empleados</a>
+        </li>
+      
+    </ul>
+      <div class="navbar-item active p-0">
+            <a class="btn btn-info btn-sm mt-1" href="Logueo.aspx"><i class=""></i>Cerrar Sesion</a>
+        </div>
+  </div>
+        
+</nav>
 
 <div class="content">
 
