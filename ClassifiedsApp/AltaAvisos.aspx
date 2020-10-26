@@ -82,7 +82,7 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <asp:Button ID="btnAltaAviso" CssClass="btn btn-primary btn-lg" runat="server" Text="Dar de alta" />
+                                <asp:LinkButton ID="btnAltaAviso" CssClass="btn btn-primary btn-lg" runat="server"><i class="fa fa-check"></i>&nbsp Dar de alta</asp:LinkButton>
                             </div>
                         </div>
 

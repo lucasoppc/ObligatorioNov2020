@@ -33,7 +33,7 @@
                            <div class="col-md-8 m-auto">
                                    <span class="col-12"><i class="fa fa-fingerprint "></i></span>
                                    <asp:TextBox ID="txtCodigo" CssClass="form-control" placeholder="Codigo" runat="server" ToolTip="Codigo categoria"></asp:TextBox>
-                                   <asp:Button ID="btnBuscarCategoria" CssClass="btn btn-primary btn-md" runat="server" Text="Buscar Categoria" />
+                                   <asp:LinkButton ID="btnBuscarCategoria" OnClick="btnBuscarCategoria_Click" CssClass="btn btn-primary" runat="server"><i class="fa fa-search"></i>&nbsp Buscar Categoria</asp:LinkButton>
                     
                           </div>
 
@@ -50,9 +50,10 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <asp:Button ID="btnAltaCategoria" CssClass="btn btn-primary btn-sm" runat="server" Text="Dar de alta" />
-                                 <asp:Button ID="btnModificarCategoria" CssClass="btn btn-warning btn-sm" runat="server" Text="Modificar" />
-                                <asp:Button ID="btnEliminarCategoria" CssClass="btn btn-danger btn-sm" runat="server" Text="Eliminar" />
+                                <asp:LinkButton ID="btnAltaCategoria" CssClass="btn btn-primary btn-sm btn-lg" runat="server"><i class="fa fa-check"></i>&nbsp Dar de alta</asp:LinkButton>
+                                <asp:LinkButton ID="btnModificarCategoria" CssClass="btn btn-warning btn-sm" runat="server"><i class="fa fa-save"></i>&nbsp Modificar</asp:LinkButton>
+                                <asp:LinkButton ID="btnEliminarCategoria" CssClass="btn btn-danger btn-sm" runat="server"><i class="fa fa-trash"></i>&nbsp Eliminar</asp:LinkButton>
+                                <asp:LinkButton ID="btnLimpiar" CssClass="btn btn-info btn-sm" runat="server"><i class="fa fa-eraser"></i>&nbsp Limpiar Formulario</asp:LinkButton>
                             </div>
                         </div>
 

@@ -12,4 +12,9 @@ public partial class AbmArticulos : System.Web.UI.Page
     {
         
     }
+
+    protected void btnBuscarArticulo_Click(object sender, EventArgs e)
+    {
+        txtCodigo.Text = "Funciona bien!!!";
+    }
 }

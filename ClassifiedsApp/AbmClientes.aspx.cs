@@ -11,4 +11,11 @@ public partial class AbmClientes : System.Web.UI.Page
     {
 
     }
+
+    protected void btnBuscarCliente_Click(object sender, EventArgs e)
+    {
+
+    }
+
+
 }

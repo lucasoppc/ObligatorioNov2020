@@ -11,4 +11,9 @@ public partial class AbmCategorias : System.Web.UI.Page
     {
 
     }
+
+    protected void btnBuscarCategoria_Click(object sender, EventArgs e)
+    {
+
+    }
 }

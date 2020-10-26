@@ -32,7 +32,7 @@
                            <div class="col-md-8 m-auto">
                                    <span class="col-12"><i class="fa fa-fingerprint "></i></span>
                                    <asp:TextBox ID="txtCodigo" CssClass="form-control" placeholder="Codigo" runat="server" ToolTip="Codigo Articulo"></asp:TextBox>
-                                   <asp:Button ID="btnBuscarArticulo" CssClass="btn btn-primary btn-md" runat="server" Text="Buscar Articulo" />
+                                   <asp:LinkButton ID="btnBuscarArticulo" OnClick="btnBuscarArticulo_Click" CssClass="btn btn-primary" runat="server"><i class="fa fa-search"></i>&nbsp Buscar Articulo</asp:LinkButton>
                     
                           </div>
 
@@ -58,9 +58,10 @@
 
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <asp:Button ID="btnAltaArticulo" CssClass="btn btn-primary btn-sm btn-lg" runat="server" Text="Dar de alta" />
-                                <asp:Button ID="btnModificarArticulo" CssClass="btn btn-warning btn-sm" runat="server" Text="Modificar" />
-                                <asp:Button ID="btnEliminarArticulo" CssClass="btn btn-danger btn-sm" runat="server" Text="Eliminar" />
+                                <asp:LinkButton ID="btnAltaArticulo" CssClass="btn btn-primary btn-sm btn-lg" runat="server"><i class="fa fa-check"></i>&nbsp Dar de alta</asp:LinkButton>
+                                <asp:LinkButton ID="btnModificarArticulo" CssClass="btn btn-warning btn-sm" runat="server"><i class="fa fa-save"></i>&nbsp Modificar</asp:LinkButton>
+                                <asp:LinkButton ID="btnEliminarArticulo" CssClass="btn btn-danger btn-sm" runat="server"><i class="fa fa-trash"></i>&nbsp Eliminar</asp:LinkButton>
+                                <asp:LinkButton ID="btnLimpiar" CssClass="btn btn-info btn-sm" runat="server"><i class="fa fa-eraser"></i>&nbsp Limpiar Formulario</asp:LinkButton>
                             </div>
                         </div>
 

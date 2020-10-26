@@ -85,7 +85,7 @@ li:hover{
       
     </ul>
       <div class="navbar-item active p-0">
-            <a class="btn btn-info btn-sm mt-1" href="Logueo.aspx"><i class=""></i>Cerrar Sesion</a>
+            <asp:LinkButton runat="server" href="Default.aspx" class="btn btn-info btn-sm mt-1"><i class="fa fa-sign-out-alt"></i>&nbsp Cerrar Sesion</asp:LinkButton>
         </div>
   </div>
         
