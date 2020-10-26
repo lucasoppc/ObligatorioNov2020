@@ -46,6 +46,10 @@ li:hover{
   color: white;
   text-decoration:none;
 }
+.i{
+    color:#9fa6ad;
+}
+
 
 
     </style>
@@ -64,19 +68,19 @@ li:hover{
     <ul class="navbar-nav mr-auto">
 
         <li class="nav-item active p-2">
-            <a class="" href="AltaAvisos.aspx">Avisos</a>     
+            <a class="i" href="AltaAvisos.aspx">Avisos</a>     
         </li>
         <li class="nav-item active p-2">
-            <a class="" href="AbmArticulos.aspx">Articulos</a>
+            <a class="i" href="AbmArticulos.aspx">Articulos</a>
         </li>
         <li class="nav-item active p-2">
-            <a class="" href="AbmClientes.aspx">Clientes</a>
+            <a class="i" href="AbmClientes.aspx">Clientes</a>
         </li>
         <li class="nav-item active p-2">
-            <a class="" href="AbmCategorias.aspx">Categorias</a>
+            <a class="i" href="AbmCategorias.aspx">Categorias</a>
         </li>
         <li class="nav-item active p-2">
-            <a class="" href="AltaEmpleados.aspx">Empleados</a>
+            <a class="i" href="AltaEmpleados.aspx">Empleados</a>
         </li>
       
     </ul>
